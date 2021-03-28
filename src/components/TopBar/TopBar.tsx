@@ -15,13 +15,22 @@ const InnerWrapper = styled.div`
   width: 1200px;
 `;
 
-const HomeContainer = styled.div``;
+const HomeContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 export const TopBar: FC = () => {
   return (
     <Wrapper2>
       <InnerWrapper>
-        <HomeContainer>Home</HomeContainer>
+        <HomeContainer>
+          <img
+            src={process.env.PUBLIC_URL + "/assets/icons/house.png"}
+            alt="img"
+          />
+          <h1>Home</h1>
+        </HomeContainer>
       </InnerWrapper>
     </Wrapper2>
   );
