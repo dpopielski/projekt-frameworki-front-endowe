@@ -9,6 +9,7 @@ const Wrapper2 = styled(Wrapper)`
   padding: 10px;
   background-color: ${Colors.white};
   box-shadow: 0px 1px 10px #999;
+  z-index: 999;
 `;
 
 const InnerWrapper = styled.div`
