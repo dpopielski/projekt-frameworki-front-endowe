@@ -2,8 +2,6 @@ import { FC } from "React";
 import styled from "styled-components";
 
 const LeftMenuContainer = styled.div`
-  height: 100vh;
-  width: 25%;
   display: flex;
   justify-content: center;
   background-color: #f4f4f4;
