@@ -6,51 +6,53 @@ import { Colors } from "../../styledHelpers/Colors";
 // import { ExpandedMenu } from "./ExpandedMenu";
 
 const TopBarWrapper = styled(Wrapper)`
-  position: fixed;
-  width: 100%;
-  padding: 10px;
+  /* justify-content: space-between; */
+  width: auto;
+  height: auto;
   background-color: ${Colors.white};
   box-shadow: 0px 1px 10px #999;
   z-index: 999;
-  align-items: center;
 `;
 
-const InnerWrapper = styled.div`
+const LeftSection = styled.div`
+  width: 25%;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  align-items: center;
 `;
 
-const MainLogoContainer = styled.div`
+const CenterSection = styled.div`
+  width: 50%;
   display: flex;
+  justify-content: center;
   align-items: center;
+`;
+
+const RightSection = styled.div`
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const MainLogo = styled.img`
+  height: 35px;
   margin-left: 10px;
   margin-right: 30px;
-
-  &>img { 
-    height: 35px;
-  }
 `;
 
 const HomeContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 20px;
-
   &>img {
-    margin-right: 15px;
+    margin-right: 10px;
   }
 `;
 
 const HomeInner = styled.div`
   display: flex;
-  justify-content: space-between;
-
-  &>p {
-    margin-right: 100px;
-  }
-  
+  width: 100px;
+  justify-content: flex-end;
 
   &>img {
     cursor: pointer;
@@ -59,19 +61,15 @@ const HomeInner = styled.div`
 
 const SearchContainer = styled.div`
   display: flex;
-  align-items: center;
   position: relative;
-  width: 30%;
-  margin-right: 20px;
+  align-items: center;
 `;
 
 const SearchComponent = styled.input`
   text-align: center;
   padding: 5px;
-  width: 100%;
   border: 1px solid #dedede;
   border-radius: 5px;
-  
 `;
 
 const SearchIcone = styled.img`
@@ -83,42 +81,47 @@ const RightIconsContainer = styled.div`
   display: flex;
 
   &>img { 
-    margin-right: 10px;
+
   }
 `;
 
 const IconsBackground = styled.div`
   background-color: #d4d4d4;
-  padding: 5px;
-  margin-right: 10px;
-  border-radius: 50%;
-`;
+  width: 40px;
+  height: 40px;
+  border-radius: 70px;
+  margin-left: 10px;
 
+  &>img {
+    padding: 8px;
+  }
+`;
 
 export const TopBar: FC = () => {
   return (
     <TopBarWrapper>
-      <InnerWrapper>
-        <MainLogoContainer>
-          <img 
+        <LeftSection>
+          <MainLogo
             src={process.env.PUBLIC_URL + "/assets/logo.png"} 
             alt="img"
-          />
-        </MainLogoContainer>
-        <HomeContainer>
-          <img
-            src={process.env.PUBLIC_URL + "/assets/icons/house.svg"}
-            alt="img"
-          />
-          <HomeInner>
-            <p>Home</p>
-            <img 
-              src={process.env.PUBLIC_URL + "/assets/icons/arrow-down.svg"} 
-              alt=""
+          >
+          </MainLogo>
+          <HomeContainer>
+            <img
+              src={process.env.PUBLIC_URL + "/assets/icons/house.svg"}
+              alt="img"
             />
-          </HomeInner>
-        </HomeContainer>
-        <SearchContainer>
+            <p>Home</p>
+            <HomeInner>
+              <img 
+                src={process.env.PUBLIC_URL + "/assets/icons/arrow-down.svg"} 
+                alt=""
+              />
+            </HomeInner>
+          </HomeContainer>
+        </LeftSection>
+        <CenterSection>
+          <SearchContainer>
           <SearchComponent 
           placeholder="Search"
           >
@@ -129,7 +132,9 @@ export const TopBar: FC = () => {
             >
           </SearchIcone>
         </SearchContainer>
-        <RightIconsContainer>
+        </CenterSection>
+        <RightSection>
+          <RightIconsContainer>
           <img 
             src={process.env.PUBLIC_URL + "/assets/icons/house2.svg"} 
             alt=""
@@ -143,7 +148,7 @@ export const TopBar: FC = () => {
             alt=""/>
           </IconsBackground>
         </RightIconsContainer>
-      </InnerWrapper>
+        </RightSection>
     </TopBarWrapper>
   );
 };
