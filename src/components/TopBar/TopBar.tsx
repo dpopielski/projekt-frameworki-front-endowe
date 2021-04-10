@@ -1,6 +1,5 @@
-import { FC } from "React";
+// import { FC } from "React";
 import styled from "styled-components";
-
 import { Wrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
 // import { ExpandedMenu } from "./ExpandedMenu";
@@ -97,7 +96,7 @@ const IconsBackground = styled.div`
   }
 `;
 
-export const TopBar: FC = () => {
+export const TopBar = () => {
   return (
     <TopBarWrapper>
         <LeftSection>

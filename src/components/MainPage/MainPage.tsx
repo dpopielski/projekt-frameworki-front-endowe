@@ -1,6 +1,5 @@
 import TopBar from "../TopBar/TopBar";
 import LeftMenu from "../LeftMenu/LeftMenu";
-import { Reset } from "styled-reset";
 import styled from "styled-components";
 
 const Layout = styled.div`
@@ -10,12 +9,16 @@ const Layout = styled.div`
 `
 
 const LeftBar = styled.div`
+  display: flex;
+  justify-content: center;
   width: 40%;
   height: 100vh;
-  background-color: blue;
+  padding: 20px;
 `
 
 const Content = styled.div`
+  display: flex;
+  justify-content: center;
   width: 60%;
   background-color: red;
 `
@@ -23,11 +26,10 @@ const Content = styled.div`
 function MainPage() {
   return (
     <>
-      <Reset />
       <TopBar />
       <Layout>
         <LeftBar>
-          <LeftMenu />
+          <LeftMenu></LeftMenu>
         </LeftBar>
         <Content></Content>
       </Layout>
