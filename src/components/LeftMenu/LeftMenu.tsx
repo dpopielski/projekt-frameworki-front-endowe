@@ -14,24 +14,37 @@ import styled from "styled-components";
 //   background-color: #ffffff;
 // `
 
+const LeftMenuData = [
+    {
+        title:'Publications',
+        path:'',
+        icone:`${process.env.PUBLIC_URL} /assets/icons/publications.svg`,
+        cName:'aside-text'
+    },
+    {
+        title:'Ecosystem',
+        path:'',
+        icone:`${process.env.PUBLIC_URL} /assets/icons/ecosystem.svg`,
+        cName:'aside-text'
+    },
+    {
+        title:'Entities',
+        path:'',
+        icone:`${process.env.PUBLIC_URL} /assets/icons/entities2.svg`,
+        cName:'aside-text'
+    }
+]
 
 export const LeftMenu = () => {
   return (
-    <aside className="w-full p-4">
-      {/* <div className="flex justify-start align-center mb-6">
-        <img className="w-7 mr-5" src={process.env.PUBLIC_URL + "/assets/icons/publications.svg"} alt=""/>
-        <p>Publications</p>
-      </div>
-      <div className="flex justify-start align-center mb-6">
-        <img className="w-7 mr-5" src={process.env.PUBLIC_URL + "/assets/icons/ecosystem.svg"} alt=""/>
-        <p>Ecosystem</p>
-      </div>
-      <div className="flex justify-start align-center mb-6">
-        <img className="w-7 mr-5" src={process.env.PUBLIC_URL + "/assets/icons/entities2.svg"} alt=""/>
-        <p>Entities</p>
-      </div> */}
+    <aside className="flex flex-col p-3 gap-4">
+      {LeftMenuData.map((elem, index) => 
+        <div key={index} className="flex align-center">
+          <img className="w-6 h-auto my-auto mr-4" src={elem.icone} alt=""/>
+          <span className="text-xs font-normal my-auto w-full">{elem.title}</span> 
+        </div>
+      )}
     </aside>
   );
 };
-
 export default LeftMenu;

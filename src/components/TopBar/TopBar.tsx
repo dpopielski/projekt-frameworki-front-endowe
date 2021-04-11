@@ -62,6 +62,7 @@ const SearchContainer = styled.div`
   display: flex;
   position: relative;
   align-items: center;
+  width: 100%;
 `;
 
 const SearchComponent = styled.input`
@@ -69,6 +70,7 @@ const SearchComponent = styled.input`
   padding: 5px;
   border: 1px solid #dedede;
   border-radius: 5px;
+  width: 100%;
 `;
 
 const SearchIcone = styled.img`
