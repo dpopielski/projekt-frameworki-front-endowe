@@ -2,20 +2,31 @@ import { FC } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
-import useDropdown from 'react-dropdown-hook';
+import useDropdown from "react-dropdown-hook";
 import { ExpandedMenu } from "./ExpandedMenu";
 
 const TopBarWrapper = styled(Wrapper)`
   /* justify-content: space-between; */
-  width: auto;
+  width: 100%;
   height: auto;
   background-color: ${Colors.white};
   box-shadow: 0px 1px 10px #999;
   z-index: 999;
 `;
 
+const WrapperInner = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+`;
+
 const LeftSection = styled.div`
-  width: 25%;
+  width: 21%;
+  margin-right: 4%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -44,19 +55,18 @@ const MainLogo = styled.img`
 const HomeContainer = styled.div`
   display: flex;
   align-items: center;
-  &>img {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  & > img {
     margin-right: 10px;
   }
 `;
 
 const HomeInner = styled.div`
   display: flex;
-  width: 100px;
+  width: 100%;
   justify-content: flex-end;
-
-  &>img {
-    cursor: pointer;
-  }
 `;
 
 const SearchContainer = styled.div`
@@ -82,8 +92,7 @@ const SearchIcone = styled.img`
 const RightIconsContainer = styled.div`
   display: flex;
 
-  &>img { 
-
+  & > img {
   }
 `;
 
@@ -94,7 +103,7 @@ const IconsBackground = styled.div`
   border-radius: 70px;
   margin-left: 10px;
 
-  &>img {
+  & > img {
     padding: 8px;
   }
 `;
@@ -106,59 +115,67 @@ export const TopBar: FC = () => {
   //   toggleDropdown();
   // };
 
+  const [
+    wrapperRef,
+    dropdownOpen,
+    toggleDropdown,
+    closeDropdown,
+  ] = useDropdown();
+
   return (
     <TopBarWrapper>
-        <LeftSection>
+      <WrapperInner>
+        <LeftSection ref={wrapperRef}>
           <MainLogo
-            src={process.env.PUBLIC_URL + "/assets/logo.png"} 
+            src={process.env.PUBLIC_URL + "/assets/logo.png"}
             alt="img"
-          >
-          </MainLogo>
-          <HomeContainer>
+          ></MainLogo>
+          <HomeContainer onClick={toggleDropdown}>
             <img
               src={process.env.PUBLIC_URL + "/assets/icons/house.svg"}
               alt="img"
             />
             <p>Home</p>
             <HomeInner>
-              <img 
-                src={process.env.PUBLIC_URL + "/assets/icons/arrow-down.svg"} 
+              <img
+                src={process.env.PUBLIC_URL + "/assets/icons/arrow-down.svg"}
                 alt=""
               />
             </HomeInner>
+            {dropdownOpen && <>{<ExpandedMenu />}</>}
           </HomeContainer>
         </LeftSection>
         <CenterSection>
           <SearchContainer>
-          <SearchComponent 
-          placeholder="Search"
-          >
-          </SearchComponent>
-          <SearchIcone
-            src={process.env.PUBLIC_URL + "/assets/icons/search.svg"} 
-            alt="img"
-            >
-          </SearchIcone>
-        </SearchContainer>
+            <SearchComponent placeholder="Search"></SearchComponent>
+            <SearchIcone
+              src={process.env.PUBLIC_URL + "/assets/icons/search.svg"}
+              alt="img"
+            ></SearchIcone>
+          </SearchContainer>
         </CenterSection>
         <RightSection>
           <RightIconsContainer>
-          <img 
-            src={process.env.PUBLIC_URL + "/assets/icons/house2.svg"} 
-            alt=""
-          />
-          <IconsBackground>
-            <img src={process.env.PUBLIC_URL + "/assets/icons/comments.svg"} 
-            alt=""/>
-          </IconsBackground> 
-          <IconsBackground>
-            <img src={process.env.PUBLIC_URL + "/assets/icons/bell.svg"} 
-            alt=""/>
-          </IconsBackground>
-        </RightIconsContainer>
+            <img
+              src={process.env.PUBLIC_URL + "/assets/icons/house2.svg"}
+              alt=""
+            />
+            <IconsBackground>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/icons/comments.svg"}
+                alt=""
+              />
+            </IconsBackground>
+            <IconsBackground>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/icons/bell.svg"}
+                alt=""
+              />
+            </IconsBackground>
+          </RightIconsContainer>
         </RightSection>
+      </WrapperInner>
     </TopBarWrapper>
-
   );
 };
 export default TopBar;
