@@ -1,3 +1,4 @@
+import { FC } from "react";
 import TopBar from "../TopBar/TopBar";
 import LeftMenu from "../LeftMenu/LeftMenu";
 import PersonalCard from "../PersonalCard/PersonalCard";
@@ -23,7 +24,7 @@ const Content = styled.div`
   width: 83.333333%;
 `
 
-function MainPage() {
+const MainPage: FC = () => {
   return (
     <>
       <TopBar />

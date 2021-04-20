@@ -1,3 +1,4 @@
+import { FC } from "react";
 import styled from "styled-components";
 
 // const LeftMenuContainer = styled.div`
@@ -35,7 +36,7 @@ const LeftMenuData = [
     }
 ]
 
-export const LeftMenu = () => {
+export const LeftMenu: FC = () => {
   return (
     <aside className="flex flex-col p-3 gap-4">
       {LeftMenuData.map((elem, index) => 

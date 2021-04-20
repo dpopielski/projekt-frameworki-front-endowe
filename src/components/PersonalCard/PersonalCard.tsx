@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 const PersonData = {
     name: 'Humberta Swift',
     jobTitle: 'Job title',
@@ -22,7 +24,7 @@ const PersonalNavData = [
     }
 ]
 
-export default function PersonalCard() {
+export const PersonalCard:FC = () => {
     return (
         <article className="bg-white rounded shadow">
             <div className="border-solid border-b-2 border-gray-200">
@@ -48,3 +50,4 @@ export default function PersonalCard() {
         </article>
     )
 }
+export default PersonalCard;

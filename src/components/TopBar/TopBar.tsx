@@ -1,8 +1,9 @@
-// import { FC } from "React";
+import { FC } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
-// import { ExpandedMenu } from "./ExpandedMenu";
+import useDropdown from 'react-dropdown-hook';
+import { ExpandedMenu } from "./ExpandedMenu";
 
 const TopBarWrapper = styled(Wrapper)`
   /* justify-content: space-between; */
@@ -98,7 +99,13 @@ const IconsBackground = styled.div`
   }
 `;
 
-export const TopBar = () => {
+export const TopBar: FC = () => {
+  // const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown;
+
+  // const menuHandler = () => {
+  //   toggleDropdown();
+  // };
+
   return (
     <TopBarWrapper>
         <LeftSection>
@@ -151,6 +158,7 @@ export const TopBar = () => {
         </RightIconsContainer>
         </RightSection>
     </TopBarWrapper>
+
   );
 };
 export default TopBar;
