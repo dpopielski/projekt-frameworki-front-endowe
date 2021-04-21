@@ -18,19 +18,19 @@ import styled from "styled-components";
 const LeftMenuData = [
   {
     title: "Publications",
-    path: "",
+    path: "#",
     icone: `${process.env.PUBLIC_URL} /assets/icons/publications.svg`,
     cName: "aside-text",
   },
   {
     title: "Ecosystem",
-    path: "",
+    path: "#",
     icone: `${process.env.PUBLIC_URL} /assets/icons/ecosystem.svg`,
     cName: "aside-text",
   },
   {
     title: "Entities",
-    path: "",
+    path: "#",
     icone: `${process.env.PUBLIC_URL} /assets/icons/entities2.svg`,
     cName: "aside-text",
   },
