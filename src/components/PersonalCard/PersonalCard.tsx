@@ -44,13 +44,16 @@ export const PersonalCard: FC = () => {
       </div>
       <div className="flex flex-col p-3 gap-2">
         {PersonalNavData.map((elem, index) => (
-          <div key={index} className="flex align-center justify-between">
+          <div
+            key={index}
+            className="flex align-center justify-center md:justify-between"
+          >
             <img
               className="w-4 h-auto my-auto mr-1.5"
               src={elem.icone1}
               alt=""
             />
-            <span className="font-normal my-auto w-full text-xs mr-1.5">
+            <span className="font-normal my-auto w-24 md:w-full text-xs mr-1.5">
               {elem.title}
             </span>
             <img
