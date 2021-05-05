@@ -19,19 +19,19 @@ const LeftMenuData = [
   {
     title: "Publications",
     path: "#",
-    icone: `${process.env.PUBLIC_URL} /assets/icons/publications.svg`,
+    icone: `./assets/icons/publications.svg`,
     cName: "aside-text",
   },
   {
     title: "Ecosystem",
     path: "#",
-    icone: `${process.env.PUBLIC_URL} /assets/icons/ecosystem.svg`,
+    icone: `./assets/icons/ecosystem.svg`,
     cName: "aside-text",
   },
   {
     title: "Entities",
     path: "#",
-    icone: `${process.env.PUBLIC_URL} /assets/icons/entities2.svg`,
+    icone: `./assets/icons/entities2.svg`,
     cName: "aside-text",
   },
 ];

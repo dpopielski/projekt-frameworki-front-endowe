@@ -4,22 +4,22 @@ const PersonData = {
   name: "Humberta Swift",
   jobTitle: "Job title",
   company: "Company",
-  img: `${process.env.PUBLIC_URL} /assets/profile.svg`,
+  img: `./assets/profile.svg`,
 };
 
 const PersonalNavData = [
   {
     title: "Your network",
     path: "",
-    icone1: `${process.env.PUBLIC_URL} /assets/icons/network.png`,
-    icone2: `${process.env.PUBLIC_URL} /assets/icons/network.svg`,
+    icone1: `./assets/icons/network.png`,
+    icone2: `./assets/icons/network.svg`,
     cName: "aside-text",
   },
   {
     title: "Your Publications",
     path: "",
-    icone1: `${process.env.PUBLIC_URL} /assets/icons/publications.png`,
-    icone2: `${process.env.PUBLIC_URL} /assets/icons/plus.png`,
+    icone1: `./assets/icons/publications.png`,
+    icone2: `./assets/icons/plus.png`,
     cName: "aside-text",
   },
 ];

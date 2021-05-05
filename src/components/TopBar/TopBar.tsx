@@ -126,21 +126,12 @@ export const TopBar: FC = () => {
     <TopBarWrapper>
       <WrapperInner>
         <LeftSection ref={wrapperRef}>
-          <MainLogo
-            src={process.env.PUBLIC_URL + "/assets/logo.png"}
-            alt="img"
-          ></MainLogo>
+          <MainLogo src="./assets/logo.png" alt="img"></MainLogo>
           <HomeContainer onClick={toggleDropdown}>
-            <img
-              src={process.env.PUBLIC_URL + "/assets/icons/house.svg"}
-              alt="img"
-            />
+            <img src="./assets/icons/house.svg" alt="img" />
             <p>Home</p>
             <HomeInner>
-              <img
-                src={process.env.PUBLIC_URL + "/assets/icons/arrow-down.svg"}
-                alt=""
-              />
+              <img src="./assets/icons/arrow-down.svg" alt="" />
             </HomeInner>
             {dropdownOpen && <>{<ExpandedMenu />}</>}
           </HomeContainer>
@@ -149,28 +140,19 @@ export const TopBar: FC = () => {
           <SearchContainer>
             <SearchComponent placeholder="Search"></SearchComponent>
             <SearchIcone
-              src={process.env.PUBLIC_URL + "/assets/icons/search.svg"}
+              src="./assets/icons/search.svg"
               alt="img"
             ></SearchIcone>
           </SearchContainer>
         </CenterSection>
         <RightSection>
           <RightIconsContainer>
-            <img
-              src={process.env.PUBLIC_URL + "/assets/icons/house2.svg"}
-              alt=""
-            />
+            <img src="./assets/icons/house2.svg" alt="" />
             <IconsBackground>
-              <img
-                src={process.env.PUBLIC_URL + "/assets/icons/comments.svg"}
-                alt=""
-              />
+              <img src="./assets/icons/comments.svg" alt="" />
             </IconsBackground>
             <IconsBackground>
-              <img
-                src={process.env.PUBLIC_URL + "/assets/icons/bell.svg"}
-                alt=""
-              />
+              <img src="./assets/icons/bell.svg" alt="" />
             </IconsBackground>
           </RightIconsContainer>
         </RightSection>
