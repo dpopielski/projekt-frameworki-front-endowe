@@ -9,6 +9,7 @@ const TopBarWrapper = styled(Wrapper)`
   /* justify-content: space-between; */
   width: 100%;
   height: auto;
+  padding: 10px;
   background-color: ${Colors.white};
   box-shadow: 0px 1px 10px #999;
   z-index: 999;
@@ -44,6 +45,7 @@ const RightSection = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-right: 8px;
 `;
 
 const MainLogo = styled.img`
@@ -97,14 +99,30 @@ const RightIconsContainer = styled.div`
 `;
 
 const IconsBackground = styled.div`
+  position: relative;
   background-color: #d4d4d4;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 70px;
   margin-left: 10px;
 
   & > img {
     padding: 8px;
+  }
+
+  &::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: "3";
+    font-size: 13px;
+    height: 18px;
+    width: 18px;
+    top: -4px;
+    left: 22px;
+    border-radius: 70px;
+    background-color: #9fd1fa;
   }
 `;
 
@@ -115,12 +133,8 @@ export const TopBar: FC = () => {
   //   toggleDropdown();
   // };
 
-  const [
-    wrapperRef,
-    dropdownOpen,
-    toggleDropdown,
-    closeDropdown,
-  ] = useDropdown();
+  const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] =
+    useDropdown();
 
   return (
     <TopBarWrapper>

@@ -2,6 +2,7 @@ import { FC } from "react";
 import TopBar from "../TopBar/TopBar";
 import LeftMenu from "../LeftMenu/LeftMenu";
 import PersonalCard from "../PersonalCard/PersonalCard";
+import Header from "../Header/Header";
 import styled from "styled-components";
 
 // const Layout = styled.div`
@@ -33,7 +34,9 @@ const MainPage: FC = () => {
           <PersonalCard />
           <LeftMenu />
         </aside>
-        <main className="bg-gray-300 flex flex-row xl:flex-col md:flex-col justify-center xl:w-5/6 w-full"></main>
+        <main className="p-4 flex flex-row xl:flex-col md:flex-col xl:w-2/3 w-2/3">
+          <Header />
+        </main>
       </section>
     </>
   );
