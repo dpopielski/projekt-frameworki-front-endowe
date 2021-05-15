@@ -147,11 +147,13 @@ export const TopBar: FC = () => {
     useDropdown();
 
   const [open, setOpen] = useState(false);
+  // const node = useRef();
+  // useOnClickOutside(node, () => setOpen(false));
 
   return (
     <TopBarWrapper>
-      <Hamburger></Hamburger>
-      <HamburgerMenu></HamburgerMenu>
+      <Hamburger open={open} setOpen={setOpen} />
+      <HamburgerMenu open={open} setOpen={setOpen}></HamburgerMenu>
       <WrapperInner>
         <LeftSection ref={wrapperRef}>
           <MainLogo src="./assets/logo.png" alt="img"></MainLogo>

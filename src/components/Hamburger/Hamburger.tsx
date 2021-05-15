@@ -2,7 +2,16 @@ import { FC } from "react";
 import styled from "styled-components";
 import { bool, func } from "prop-types";
 
-export const StyledBurger = styled.button`
+interface Props {
+  open: boolean;
+}
+
+interface HamburgerProps {
+  open: boolean;
+  setOpen: (value: boolean) => void;
+}
+
+export const StyledBurger = styled.button<Props>`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,10 +24,7 @@ export const StyledBurger = styled.button`
   z-index: 10;
   margin-right: 8px;
   margin-top: 4px;
-
-  @media (min-width: 1280px) {
-    display: none;
-  }
+  margin-bottom: 4px;
 
   &:focus {
     outline: none;
@@ -27,26 +33,36 @@ export const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: #161616;
+    background: ${({ open }) => (open ? "#0D0C1D" : "#0D0C1D")};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+
+    :first-child {
+      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ open }) => (open ? "0" : "1")};
+      transform: ${({ open }) =>
+        open ? "translateX(-20px)" : "translateX(0)"};
+    }
+
+    :nth-child(3) {
+      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+    }
   }
 `;
 
-export const Hamburger: FC = () => {
+export const Hamburger: FC<HamburgerProps> = ({ open, setOpen }) => {
   return (
-    <StyledBurger>
+    <StyledBurger open={open} onClick={() => setOpen(!open)}>
       <div />
       <div />
       <div />
     </StyledBurger>
   );
 };
-// Hamburger.propTypes = {
-//   open: bool.isRequired,
-//   setOpen: func.isRequired,
-// };
 
 export default Hamburger;

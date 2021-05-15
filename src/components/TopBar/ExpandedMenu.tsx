@@ -45,7 +45,10 @@ const ExpandedMenuData = [
 
 export const ExpandedMenu: FC = () => {
   return (
-    <nav className="absolute flex flex-col w-full top-9 bg-white">
+    <nav
+      className="absolute flex flex-col w-full top-9 bg-white"
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className="flex align-center p-1.5 w-full">
         <input
           className="text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full"

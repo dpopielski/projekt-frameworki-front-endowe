@@ -34,7 +34,7 @@ const MainPage: FC = () => {
           <PersonalCard />
           <LeftMenu />
         </aside>
-        <main className="p-4  flex flex-row xl:flex-col xl:w-5/6 xl:pr-24">
+        <main className="p-4 flex flex-row xl:flex-col xl:w-5/6 xl:pr-24">
           <Header />
         </main>
       </section>

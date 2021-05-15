@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { bool } from "prop-types";
 
 const ExpandedMenuData = [
   {
@@ -30,26 +29,31 @@ const ExpandedMenuData = [
   },
 ];
 
-const StyledMenu = styled.nav`
+interface Props {
+  open: boolean;
+}
+
+interface HamburgerProps {
+  open: boolean;
+  setOpen: (value: boolean) => void;
+}
+
+const StyledMenu = styled.nav<Props>`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: #effffa;
+  /* justify-content: center; */
+  background: #f5f5f5;
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 4rem 1rem;
   position: absolute;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
 
   @media (max-width: 576px) {
     width: 100%;
-  }
-
-  @media (min-width: 1280px) {
-    display: none;
   }
 
   a {
@@ -73,10 +77,10 @@ const StyledMenu = styled.nav`
   }
 `;
 
-export const HamburgerMenu: FC = () => {
+export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
   return (
-    <StyledMenu>
-      <a href="/">
+    <StyledMenu open={open}>
+      {/* <a href="/">
         <span role="img" aria-label="about us">
           &#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;
         </span>
@@ -93,30 +97,25 @@ export const HamburgerMenu: FC = () => {
           &#x1f4e9;
         </span>
         Contact
-      </a>
-      {/* <nav className="absolute flex flex-col w-full top-9 bg-white">
-        <div className="flex align-center p-1.5 w-full">
-          <input
-            className="text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full"
-            placeholder="Filter..."
-            type="text"
-          />
-        </div>
-        <span className="text-xs px-2">Platform</span>
-        {ExpandedMenuData.map((elem, index) => (
-          <ul
-            key={index}
-            className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300"
-          >
-            <img src={elem.icone} alt="" />
-            <li className="text-sm">{elem.title}</li>
-          </ul>
-        ))}
-      </nav> */}
+      </a> */}
+      <div className="flex align-center p-1.5 w-full">
+        <input
+          className="text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full"
+          placeholder="Filter..."
+          type="text"
+        />
+      </div>
+      <span className="text-xs px-2">Platform</span>
+      {ExpandedMenuData.map((elem, index) => (
+        <ul
+          key={index}
+          className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300"
+        >
+          <img src={elem.icone} alt="" />
+          <li className="text-sm">{elem.title}</li>
+        </ul>
+      ))}
     </StyledMenu>
   );
 };
-// HamburgerMenu.propTypes = {
-//   open: bool.isRequired,
-// };
 export default HamburgerMenu;
