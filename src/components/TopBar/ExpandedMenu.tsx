@@ -57,7 +57,7 @@ export const ExpandedMenu: FC = () => {
       {ExpandedMenuData.map((elem, index) => (
         <ul
           key={index}
-          className="flex justify-start align-center p-2 gap-4 w-full"
+          className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300"
         >
           <img src={elem.icone} alt="" />
           <li className="text-sm">{elem.title}</li>

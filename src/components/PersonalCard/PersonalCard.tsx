@@ -46,14 +46,14 @@ export const PersonalCard: FC = () => {
         {PersonalNavData.map((elem, index) => (
           <div
             key={index}
-            className="flex align-center justify-center md:justify-between"
+            className="flex align-center justify-center xl:justify-between"
           >
             <img
               className="w-4 h-auto my-auto mr-1.5"
               src={elem.icone1}
               alt=""
             />
-            <span className="font-normal my-auto w-24 md:w-full text-xs mr-1.5">
+            <span className="font-normal my-auto w-24 xl:w-full text-xs mr-1.5">
               {elem.title}
             </span>
             <img

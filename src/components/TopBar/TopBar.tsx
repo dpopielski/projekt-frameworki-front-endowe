@@ -4,21 +4,30 @@ import { Wrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
 import useDropdown from "react-dropdown-hook";
 import { ExpandedMenu } from "./ExpandedMenu";
+import Hamburger from "../Hamburger/Hamburger";
+import HamburgerMenu from "../Hamburger/HamburgerMenu";
+import { useState } from "react";
 
 const TopBarWrapper = styled(Wrapper)`
   /* justify-content: space-between; */
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
   height: auto;
-  padding: 10px;
-  background-color: ${Colors.white};
-  box-shadow: 0px 1px 10px #999;
   z-index: 999;
+  box-shadow: 0px 1px 10px #999;
+  background-color: #f5f5f5;
+  background-color: ${Colors.white};
+
+  @media (min-width: 1280px) {
+    padding: 10px;
+  }
 `;
 
 const WrapperInner = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1280px) {
     display: flex;
     width: 100%;
     height: auto;
@@ -45,7 +54,6 @@ const RightSection = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 8px;
 `;
 
 const MainLogo = styled.img`
@@ -95,6 +103,8 @@ const RightIconsContainer = styled.div`
   display: flex;
 
   & > img {
+    margin-right: 12px;
+    cursor: pointer;
   }
 `;
 
@@ -104,7 +114,8 @@ const IconsBackground = styled.div`
   width: 35px;
   height: 35px;
   border-radius: 70px;
-  margin-left: 10px;
+  margin-right: 12px;
+  cursor: pointer;
 
   & > img {
     padding: 8px;
@@ -128,7 +139,6 @@ const IconsBackground = styled.div`
 
 export const TopBar: FC = () => {
   // const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown;
-
   // const menuHandler = () => {
   //   toggleDropdown();
   // };
@@ -136,8 +146,12 @@ export const TopBar: FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] =
     useDropdown();
 
+  const [open, setOpen] = useState(false);
+
   return (
     <TopBarWrapper>
+      <Hamburger></Hamburger>
+      <HamburgerMenu></HamburgerMenu>
       <WrapperInner>
         <LeftSection ref={wrapperRef}>
           <MainLogo src="./assets/logo.png" alt="img"></MainLogo>

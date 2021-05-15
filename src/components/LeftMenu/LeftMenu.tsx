@@ -38,7 +38,7 @@ const LeftMenuData = [
 
 export const LeftMenu: FC = () => {
   return (
-    <aside className="hidden md:flex md:flex-col md:p-3 md:gap-4">
+    <aside className="hidden xl:flex xl:flex-col xl:p-3 xl:gap-4">
       {LeftMenuData.map((elem, index) => (
         <div key={index} className="flex align-center">
           <img className="w-6 h-auto my-auto mr-4" src={elem.icone} alt="" />

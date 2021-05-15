@@ -29,12 +29,12 @@ const MainPage: FC = () => {
   return (
     <>
       <TopBar />
-      <section className="flex flex-col xl:flex-row md:flex-row">
-        <aside className="flex flex-row md:w-64 xl:flex-col md:flex-col justify-center xl:w-1/6 p-4">
+      <section className="flex flex-col mx-auto w-11/12 lg:w-4/5 xl:flex-row xl:m-0 xl:w-full">
+        <aside className="flex flex-row xl:flex-col justify-center xl:w-1/6 p-4">
           <PersonalCard />
           <LeftMenu />
         </aside>
-        <main className="p-4 flex flex-row xl:flex-col md:flex-col xl:w-2/3 w-2/3">
+        <main className="p-4  flex flex-row xl:flex-col xl:w-5/6 xl:pr-24">
           <Header />
         </main>
       </section>
