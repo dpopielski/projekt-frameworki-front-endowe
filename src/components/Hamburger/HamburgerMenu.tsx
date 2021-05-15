@@ -43,7 +43,7 @@ const StyledMenu = styled.nav<Props>`
   flex-direction: column;
   /* justify-content: center; */
   background: #f5f5f5;
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   height: 100vh;
   text-align: left;
   padding: 4rem 1rem;
@@ -54,6 +54,9 @@ const StyledMenu = styled.nav<Props>`
 
   @media (max-width: 576px) {
     width: 100%;
+  }
+  @media (min-width: 1280px) {
+    display: none;
   }
 
   a {

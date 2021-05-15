@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { bool, func } from "prop-types";
 
 interface Props {
   open: boolean;
@@ -22,9 +21,13 @@ export const StyledBurger = styled.button<Props>`
   cursor: pointer;
   padding: 0;
   z-index: 10;
-  margin-right: 8px;
+  margin-left: 8px;
   margin-top: 4px;
   margin-bottom: 4px;
+
+  @media (min-width: 1280px) {
+    display: none;
+  }
 
   &:focus {
     outline: none;
@@ -45,8 +48,7 @@ export const StyledBurger = styled.button<Props>`
 
     :nth-child(2) {
       opacity: ${({ open }) => (open ? "0" : "1")};
-      transform: ${({ open }) =>
-        open ? "translateX(-20px)" : "translateX(0)"};
+      transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
     }
 
     :nth-child(3) {

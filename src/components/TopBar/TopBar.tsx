@@ -11,7 +11,7 @@ import { useState } from "react";
 const TopBarWrapper = styled(Wrapper)`
   /* justify-content: space-between; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   z-index: 999;
