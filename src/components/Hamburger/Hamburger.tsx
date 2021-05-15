@@ -16,6 +16,10 @@ export const StyledBurger = styled.button`
   margin-right: 8px;
   margin-top: 4px;
 
+  @media (min-width: 1280px) {
+    display: none;
+  }
+
   &:focus {
     outline: none;
   }

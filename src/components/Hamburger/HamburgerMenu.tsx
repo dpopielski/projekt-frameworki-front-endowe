@@ -48,6 +48,10 @@ const StyledMenu = styled.nav`
     width: 100%;
   }
 
+  @media (min-width: 1280px) {
+    display: none;
+  }
+
   a {
     font-size: 2rem;
     text-transform: uppercase;
