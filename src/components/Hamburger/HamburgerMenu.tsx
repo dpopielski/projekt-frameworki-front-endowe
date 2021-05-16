@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
+import LeftMenu from "../LeftMenu/LeftMenu";
 
 const ExpandedMenuData = [
   {
@@ -29,6 +30,27 @@ const ExpandedMenuData = [
   },
 ];
 
+const LeftMenuData = [
+  {
+    title: "Publications",
+    path: "#",
+    icone: `./assets/icons/publications.svg`,
+    cName: "aside-text",
+  },
+  {
+    title: "Ecosystem",
+    path: "#",
+    icone: `./assets/icons/ecosystem.svg`,
+    cName: "aside-text",
+  },
+  {
+    title: "Entities",
+    path: "#",
+    icone: `./assets/icons/entities2.svg`,
+    cName: "aside-text",
+  },
+];
+
 interface Props {
   open: boolean;
 }
@@ -50,33 +72,16 @@ const StyledMenu = styled.nav<Props>`
   position: absolute;
   top: 0;
   left: 0;
+  width: 33.333333%;
   transition: transform 0.3s ease-in-out;
+  box-shadow: ${({ open }) => (open ? "0px 1px 10px #999;" : "none")};
 
   @media (max-width: 576px) {
     width: 100%;
   }
+
   @media (min-width: 1280px) {
     display: none;
-  }
-
-  a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: #0d0c1d;
-    text-decoration: none;
-    transition: color 0.3s linear;
-
-    @media (max-width: 576px) {
-      font-size: 1.5rem;
-      text-align: center;
-    }
-
-    &:hover {
-      color: #343078;
-    }
   }
 `;
 
@@ -108,16 +113,31 @@ export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
           type="text"
         />
       </div>
-      <span className="text-xs px-2">Platform</span>
-      {ExpandedMenuData.map((elem, index) => (
-        <ul
-          key={index}
-          className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300"
-        >
-          <img src={elem.icone} alt="" />
-          <li className="text-sm">{elem.title}</li>
-        </ul>
-      ))}
+
+      <div className="mt-2">
+        <span className="text-xs px-2">Platform</span>
+        {ExpandedMenuData.map((elem, index) => (
+          <ul
+            key={index}
+            className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
+          >
+            <img src={elem.icone} alt="" />
+            <li className="text-sm">{elem.title}</li>
+          </ul>
+        ))}
+      </div>
+
+      <div className="">
+        {LeftMenuData.map((elem, index) => (
+          <ul
+            key={index}
+            className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
+          >
+            <img src={elem.icone} alt="" />
+            <li className="text-sm">{elem.title}</li>
+          </ul>
+        ))}
+      </div>
     </StyledMenu>
   );
 };

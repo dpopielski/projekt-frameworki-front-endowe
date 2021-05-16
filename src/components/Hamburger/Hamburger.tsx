@@ -21,9 +21,6 @@ export const StyledBurger = styled.button<Props>`
   cursor: pointer;
   padding: 0;
   z-index: 10;
-  margin-left: 8px;
-  margin-top: 4px;
-  margin-bottom: 4px;
 
   @media (min-width: 1280px) {
     display: none;
@@ -33,13 +30,13 @@ export const StyledBurger = styled.button<Props>`
     outline: none;
   }
 
-  div {
+  & > div {
+    position: relative;
     width: 2rem;
     height: 0.25rem;
-    background: ${({ open }) => (open ? "#0D0C1D" : "#0D0C1D")};
     border-radius: 10px;
+    background: #0d0c1d;
     transition: all 0.3s linear;
-    position: relative;
     transform-origin: 1px;
 
     :first-child {

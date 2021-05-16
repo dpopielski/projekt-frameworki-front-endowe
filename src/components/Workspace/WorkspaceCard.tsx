@@ -1,16 +1,18 @@
 import { FC } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
+const Card = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: black;
 `;
+
+const CardInner = styled.div``;
 
 export const WorkspaceCard: FC = () => {
   return (
     <>
-      <Wrapper></Wrapper>
+      <Card></Card>
     </>
   );
 };

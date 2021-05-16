@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useRef, MutableRefObject } from "react";
 import styled from "styled-components";
 import { Wrapper } from "../../styledHelpers/Components";
 import { Colors } from "../../styledHelpers/Colors";
@@ -6,22 +6,15 @@ import useDropdown from "react-dropdown-hook";
 import { ExpandedMenu } from "./ExpandedMenu";
 import Hamburger from "../Hamburger/Hamburger";
 import HamburgerMenu from "../Hamburger/HamburgerMenu";
-import { useState } from "react";
+import { useOnClickOutside } from "../../hooks/hooks";
 
 const TopBarWrapper = styled(Wrapper)`
-  /* justify-content: space-between; */
-  display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: auto;
   z-index: 999;
   box-shadow: 0px 1px 10px #999;
-  background-color: #f5f5f5;
   background-color: ${Colors.white};
-
-  @media (min-width: 1280px) {
-    padding: 10px;
-  }
+  padding: 10px;
 `;
 
 const WrapperInner = styled.div`
@@ -138,20 +131,16 @@ const IconsBackground = styled.div`
 `;
 
 export const TopBar: FC = () => {
-  // const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown;
-  // const menuHandler = () => {
-  //   toggleDropdown();
-  // };
-
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] =
     useDropdown();
 
   const [open, setOpen] = useState(false);
-  // const node = useRef();
-  // useOnClickOutside(node, () => setOpen(false));
+
+  const node = useRef() as MutableRefObject<HTMLInputElement>;
+  useOnClickOutside(node, () => setOpen(false));
 
   return (
-    <TopBarWrapper>
+    <TopBarWrapper ref={node}>
       <Hamburger open={open} setOpen={setOpen} />
       <HamburgerMenu open={open} setOpen={setOpen}></HamburgerMenu>
       <WrapperInner>
