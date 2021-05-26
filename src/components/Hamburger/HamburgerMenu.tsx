@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styled from "styled-components";
 import LeftMenu from "../LeftMenu/LeftMenu";
 
@@ -86,6 +86,7 @@ const StyledMenu = styled.nav<Props>`
 `;
 
 export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
+  const [search, setSearch] = useState("");
   return (
     <StyledMenu open={open}>
       {/* <a href="/">
@@ -111,12 +112,15 @@ export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
           className="text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full"
           placeholder="Filter..."
           type="text"
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
         />
       </div>
 
       <div className="mt-2">
         <span className="text-xs px-2">Platform</span>
-        {ExpandedMenuData.map((elem, index) => (
+        {ExpandedMenuData.filter((elem) =>
+          elem.title.toLowerCase().includes(search)
+        ).map((elem, index) => (
           <ul
             key={index}
             className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
@@ -128,7 +132,9 @@ export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
       </div>
 
       <div className="">
-        {LeftMenuData.map((elem, index) => (
+        {LeftMenuData.filter((elem) =>
+          elem.title.toLowerCase().includes(search)
+        ).map((elem, index) => (
           <ul
             key={index}
             className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"

@@ -1,25 +1,38 @@
 import { FC } from "react";
 import styled from "styled-components";
 import WorkspaceCard from "./WorkspaceCard";
-import Carousel from 'react-elastic-carousel'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css";
+import SwiperCore, { Pagination, Mousewheel } from "swiper/core";
+SwiperCore.use([Pagination, Mousewheel]);
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-`;
+const Wrapper = styled.div``;
 
 export const Workspace: FC = () => {
   return (
     <Wrapper>
-      <Carousel isRTL={false} itemsToShow={4} showArrows={false} itemPosition={"START"} pagination={false}>
-        <WorkspaceCard>1</WorkspaceCard>
-        <WorkspaceCard>2</WorkspaceCard>
-        <WorkspaceCard>3</WorkspaceCard>
-        <WorkspaceCard>4</WorkspaceCard>
-        <WorkspaceCard>5</WorkspaceCard>
-        <WorkspaceCard>6</WorkspaceCard>
-      </Carousel>
+      <h4 className="my-4 text-lg font-semibold">Workspaces</h4>
+      <Swiper
+        slidesPerView={3}
+        direction={"horizontal"}
+        spaceBetween={5}
+        freeMode={true}
+        mousewheel={true}
+      >
+        <SwiperSlide>
+          <WorkspaceCard></WorkspaceCard>
+        </SwiperSlide>
+        <SwiperSlide>
+          <WorkspaceCard></WorkspaceCard>
+        </SwiperSlide>
+        <SwiperSlide>
+          <WorkspaceCard></WorkspaceCard>
+        </SwiperSlide>
+        <SwiperSlide>
+          <WorkspaceCard></WorkspaceCard>
+        </SwiperSlide>
+      </Swiper>
     </Wrapper>
   );
 };

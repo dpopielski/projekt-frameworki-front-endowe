@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 const ExpandedMenuData = [
   {
@@ -44,6 +44,8 @@ const ExpandedMenuData = [
 // `;
 
 export const ExpandedMenu: FC = () => {
+  const [search, setSearch] = useState("");
+
   return (
     <nav
       className="absolute flex flex-col w-full top-9 bg-white"
@@ -54,10 +56,13 @@ export const ExpandedMenu: FC = () => {
           className="text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full"
           placeholder="Filter..."
           type="text"
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
         />
       </div>
       <span className="text-xs px-2">Platform</span>
-      {ExpandedMenuData.map((elem, index) => (
+      {ExpandedMenuData.filter((elem) =>
+        elem.title.toLowerCase().includes(search)
+      ).map((elem, index) => (
         <ul
           key={index}
           className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300"

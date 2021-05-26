@@ -2,7 +2,7 @@ import { FC } from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-position: relative;
+  position: relative;
   height: 250px;
   width: 350px;
   border-radius: 5px;
@@ -19,20 +19,26 @@ const CardImg = styled.div`
 `;
 
 const Content = styled.div`
-height: 55%;
+  height: 55%;
   padding: 10px;
 
   div {
     height: 60%;
 
-    p { 
-      margin-left: 35%;
+    p {
+      margin-left: 30%;
     }
   }
 
-  span { 
+  span {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      height: 16px;
+      width: 16px;
+    }
   }
 `;
 
@@ -41,32 +47,34 @@ const CardInnerImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 10px;
-  top: 75px;
-  height: 100px;
-  width: 100px;
+  left: 15px;
+  top: 85px;
+  height: 80px;
+  width: 80px;
   border-radius: 5px;
   background-color: #fff;
-    --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 
-    img { 
-      width: 50px;
-    }
+  img {
+    width: 30px;
+  }
 `;
 
 export const WorkspaceCard: FC = () => {
   return (
     <>
       <Card>
-        <CardInnerImg><img src="./assets/icons/entities.png" alt="" /></CardInnerImg>
+        <CardInnerImg>
+          <img src="./assets/icons/entities.png" alt="" />
+        </CardInnerImg>
         <CardImg></CardImg>
         <Content>
           <div>
             <p>Client contract</p>
           </div>
-          
+
           <span>
             <img src="./assets/icons/people.png" alt="" />
             Contract -
@@ -75,7 +83,6 @@ export const WorkspaceCard: FC = () => {
           </span>
 
           <span>Last update 2 days ago</span>
-
         </Content>
       </Card>
     </>

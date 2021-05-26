@@ -9,6 +9,8 @@ import HamburgerMenu from "../Hamburger/HamburgerMenu";
 import { useOnClickOutside } from "../../hooks/hooks";
 
 const TopBarWrapper = styled(Wrapper)`
+  position: sticky;
+  top: 0;
   justify-content: flex-start;
   width: 100%;
   z-index: 999;
