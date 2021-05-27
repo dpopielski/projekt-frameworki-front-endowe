@@ -37,7 +37,7 @@ export const PersonalCard: FC = () => {
           <p className="flex justify-center text-sm my-1">{PersonData.name}</p>
           <div className="flex justify-center">
             <span className="text-xs font-thin">{PersonData.jobTitle}</span>
-            <span className="text-xs mx-1">-</span>
+            <span className="text-xs mx-1">·</span>
             <span className="text-xs font-thin">{PersonData.company}</span>
           </div>
         </div>

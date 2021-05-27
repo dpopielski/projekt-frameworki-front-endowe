@@ -5,6 +5,7 @@ import LeftMenu from "../LeftMenu/LeftMenu";
 import PersonalCard from "../PersonalCard/PersonalCard";
 import Workspace from "../Workspace/Workspace";
 import Header from "../Header/Header";
+import Resume from "../Resume/Resume";
 import styled from "styled-components";
 
 const MainPage: FC = () => {
@@ -19,6 +20,7 @@ const MainPage: FC = () => {
         <main className="p-4 flex gap-5 flex-col xl:w-5/6 xl:pr-24">
           <Header />
           <Workspace />
+          <Resume />
         </main>
       </section>
     </Router>

@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Card = styled.div`
   position: relative;
-  height: 250px;
-  width: 350px;
+  height: 200px;
+  width: 280px;
   border-radius: 5px;
   background-color: #fff;
   overflow: hidden;
@@ -23,10 +23,10 @@ const Content = styled.div`
   padding: 10px;
 
   div {
-    height: 60%;
+    height: 55%;
 
     p {
-      margin-left: 30%;
+      margin-left: 35%;
     }
   }
 
@@ -47,8 +47,8 @@ const CardInnerImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 15px;
-  top: 85px;
+  left: 8px;
+  top: 60px;
   height: 80px;
   width: 80px;
   border-radius: 5px;

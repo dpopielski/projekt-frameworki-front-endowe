@@ -7,14 +7,12 @@ import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Pagination, Mousewheel } from "swiper/core";
 SwiperCore.use([Pagination, Mousewheel]);
 
-const Wrapper = styled.div``;
-
 export const Workspace: FC = () => {
   return (
-    <Wrapper>
-      <h4 className="my-4 text-lg font-semibold">Workspaces</h4>
+    <div>
+      <h4 className="mb-3 text-lg font-semibold">Workspaces</h4>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={4}
         direction={"horizontal"}
         spaceBetween={5}
         freeMode={true}
@@ -33,7 +31,7 @@ export const Workspace: FC = () => {
           <WorkspaceCard></WorkspaceCard>
         </SwiperSlide>
       </Swiper>
-    </Wrapper>
+    </div>
   );
 };
 export default Workspace;
