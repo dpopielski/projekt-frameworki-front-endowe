@@ -1,8 +1,31 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import styled from "styled-components";
-import { ResumeCard } from "./ResumeCard";
+import ResumeCard from "./ResumeCard";
+import Pagination from "../Pagination/Pagination";
+import axios from 'axios';
 
 export const Resume: FC = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      setLoading(true);
+      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      setPosts(response.data);
+      setLoading(false);
+    }
+    fetchPost();
+  }, []);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber: any) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <div className="flex items-center mb-3">
@@ -28,16 +51,9 @@ export const Resume: FC = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
-        <ResumeCard />
+        <ResumeCard posts={currentPost} loading={loading}/>
       </div>
+      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
     </div>
   );
 };
