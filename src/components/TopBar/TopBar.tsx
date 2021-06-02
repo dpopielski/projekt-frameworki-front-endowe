@@ -136,15 +136,15 @@ export const TopBar: FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] =
     useDropdown();
 
-  const [open, setOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const node = useRef() as MutableRefObject<HTMLInputElement>;
-  useOnClickOutside(node, () => setOpen(false));
+  useOnClickOutside(node, () => setIsMenuOpen(false));
 
   return (
     <TopBarWrapper ref={node}>
-      <Hamburger open={open} setOpen={setOpen} />
-      <HamburgerMenu open={open} setOpen={setOpen}></HamburgerMenu>
+      <Hamburger open={isMenuOpen} setOpen={setIsMenuOpen} />
+      <HamburgerMenu open={isMenuOpen} setOpen={setIsMenuOpen}></HamburgerMenu>
       <WrapperInner>
         <LeftSection ref={wrapperRef}>
           <MainLogo src="./assets/logo.png" alt="img"></MainLogo>

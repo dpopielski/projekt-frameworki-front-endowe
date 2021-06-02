@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from "react";
 import styled from "styled-components";
 import ResumeCard from "./ResumeCard";
 import Pagination from "../Pagination/Pagination";
-import axios from 'axios';
+import axios from "axios";
 
 export const Resume: FC = () => {
   const [posts, setPosts] = useState([]);
@@ -13,10 +13,12 @@ export const Resume: FC = () => {
   useEffect(() => {
     const fetchPost = async () => {
       setLoading(true);
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
       setPosts(response.data);
       setLoading(false);
-    }
+    };
     fetchPost();
   }, []);
 
@@ -25,6 +27,8 @@ export const Resume: FC = () => {
   const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber);
+
+  const [filter, setFilter] = useState("");
 
   return (
     <div>
@@ -35,6 +39,7 @@ export const Resume: FC = () => {
             className="p-0.5 border-2 border-solid rounded-sm"
             placeholder="Filter by title..."
             type="text"
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
           <img
             className="absolute right-2"
@@ -50,10 +55,25 @@ export const Resume: FC = () => {
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-2">
-        <ResumeCard posts={currentPost} loading={loading}/>
-      </div>
-      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
+
+      {filter === "" ? (
+        <>
+          <div className="flex flex-col gap-2">
+            <ResumeCard posts={currentPost} loading={loading} filter={filter} />
+          </div>
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+          />
+        </>
+      ) : (
+        <>
+          <div className="flex flex-col gap-2">
+            <ResumeCard posts={posts} loading={loading} filter={filter} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
