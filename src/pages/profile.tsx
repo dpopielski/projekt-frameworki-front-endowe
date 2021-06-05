@@ -1,5 +1,8 @@
-const Profile = () => {
-  return <div>Profile</div>;
-};
-
-export default Profile;
+import ProfileInfo from "../components/ProfileInfo/ProfileInfo"
+export default function Profile() {
+    return (
+        <>
+            <ProfileInfo />
+        </>
+    )
+}

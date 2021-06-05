@@ -1,5 +1,4 @@
 import { FC, useState, useEffect } from "react";
-import styled from "styled-components";
 import ResumeCard from "./ResumeCard";
 import Pagination from "../Pagination/Pagination";
 import axios from "axios";
