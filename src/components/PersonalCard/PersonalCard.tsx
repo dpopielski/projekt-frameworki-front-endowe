@@ -26,7 +26,7 @@ const PersonalNavData = [
 
 export const PersonalCard: FC = () => {
   return (
-    <article className="w-full bg-white rounded shadow">
+    <article className="bg-white rounded shadow">
       <div className="border-solid border-b-2 border-gray-200">
         <div className="p-3">
           <img
