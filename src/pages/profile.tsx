@@ -1,11 +1,11 @@
 import ProfileInfo from "../components/ProfileInfo/ProfileInfo"
-import ProfileAttributes from "../components/ProfileAttributes/ProfileAttributes"
+import ProfileTags from "../components/ProfileTags/ProfileTags"
 export default function Profile() {
     return (
-        <div>
+        <div className="shadow">
             <ProfileInfo />
             <hr />
-            <ProfileAttributes />
+            <ProfileTags />
         </div>
     )
 }

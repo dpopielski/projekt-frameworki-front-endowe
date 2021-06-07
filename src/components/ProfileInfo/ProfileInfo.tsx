@@ -1,19 +1,21 @@
 import { FC } from "react";
+import { PencilIcon, ChatIcon, DocumentTextIcon, BriefcaseIcon } from '@heroicons/react/outline';
+import { XIcon } from '@heroicons/react/solid';
 
 const ProfileInfoData = [
     {
         title: 'Message',
-        icone: './assets/icons/comments.svg',
+        icone: <ChatIcon className="h-5 w-5"/>,
         path: '/',
     },
     {
         title: 'Create a request',
-        icone: './assets/icons/comments.svg',
+        icone: <DocumentTextIcon className="h-5 w-5"/>,
         path: '/',
     },
     {
         title: 'Add to a cluster',
-        icone: './assets/icons/comments.svg',
+        icone: <BriefcaseIcon className="h-5 w-5"/>,
         path: '/',
     },
 ];
@@ -25,12 +27,14 @@ export const ProfileInfo: FC = () => {
                 {ProfileInfoData.map((item, index) => (
                     <div className="" key={index}>
                         <a className="flex gap-2" href={item.path}>
-                            <img src={item.icone} alt="" />
+                            <span>{item.icone}</span>
                             <span>{item.title}</span>
                         </a>
                     </div>
                 ))}
-                <span>X</span>
+                <a className="flex justify-center items-center" href="/">
+                    <XIcon className="h-5 w-5" />
+                </a>
             </nav>
             
             <article className="flex w-full">
@@ -45,7 +49,7 @@ export const ProfileInfo: FC = () => {
                                     <p>Humberta swift</p>
                                     <p>Clifford Chance</p>
                                 </div>
-                                <span><img src="" alt="" />X</span>
+                                <a href="/"><PencilIcon className="h-5 w-5" /></a>
                             </div>
                             <div className="flex justify-between w-full">
                                 <span className="font-light">New-york <br /> Partner</span>

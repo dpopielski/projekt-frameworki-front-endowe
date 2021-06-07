@@ -2,6 +2,8 @@ import { FC, useState, useEffect } from "react";
 import ResumeCard from "./ResumeCard";
 import Pagination from "../Pagination/Pagination";
 import axios from "axios";
+import { StatusOnlineIcon, SearchIcon } from '@heroicons/react/outline';
+
 
 export const Resume: FC = () => {
   const [posts, setPosts] = useState([]);
@@ -40,14 +42,12 @@ export const Resume: FC = () => {
             type="text"
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
-          <img
-            className="absolute right-2"
-            src="./assets/icons/search.svg"
-            alt=""
-          />
+          <a className="absolute right-2" href="/">
+            <SearchIcon className="h-5 w-5" />
+          </a>
         </div>
-        <div className="flex gap-2 mr-8">
-          <img src="./assets/icons/cog.svg" alt="" />
+        <div className="flex items-center gap-2 mr-8">
+          <StatusOnlineIcon className="h-5 w-5"/>
           <span className="flex items-center gap-2">
             Followed
             <img src="./assets/icons/arrow-down.svg" alt="" />
