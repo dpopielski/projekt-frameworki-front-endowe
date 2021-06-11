@@ -22,7 +22,7 @@ const ProfileInfoData = [
 
 export const ProfileInfo: FC = () => {
     return (
-        <section className="rounded bg-white p-5">
+        <section className="rounded-t bg-white p-5">
             <nav className="flex justify-end gap-4 mb-5">
                 {ProfileInfoData.map((item, index) => (
                     <div className="" key={index}>

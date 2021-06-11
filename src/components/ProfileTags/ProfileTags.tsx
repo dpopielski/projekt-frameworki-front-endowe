@@ -3,7 +3,7 @@ import { PencilIcon } from '@heroicons/react/outline';
 
 export const ProfileAttributes:FC = () => {
     return (
-        <section className="flex flex-col gap-3 relative rounded bg-white p-5">
+        <section className="flex flex-col gap-3 relative bg-white p-5">
             <a className="absolute right-5 top-5" href="/">
                 <PencilIcon className="h-5 w-5"/>
             </a>

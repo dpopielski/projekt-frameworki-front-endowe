@@ -18,7 +18,7 @@ export const Pagination: FC<PaginationProps> = ({ postsPerPage, totalPosts, pagi
             <ul className="flex justify-center w-1/2 gap-3">
                 {pageNumbers.map(number => (
                     <li key={number}>
-                        <a onClick={() => paginate(number)} href="!#">
+                        <a onClick={() => paginate(number)} href="">
                             {number}
                         </a>
                     </li>
