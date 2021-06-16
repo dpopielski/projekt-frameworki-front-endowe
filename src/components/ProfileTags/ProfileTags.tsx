@@ -9,14 +9,14 @@ export const ProfileAttributes:FC = () => {
             </a>
             <div>
                 <p className="
-                block mb-2">Expertise</p>
+                block mb-2 font-extralight">Expertise</p>
                 <div className="flex flex-start flex-wrap gap-2">
                     <span className='rounded bg-blue-100 px-2'>Mergers and acquistion</span>
                 </div>       
             </div>
             <div>
                 <p className="
-                block mb-2">Specialties</p>
+                block mb-2 font-extralight">Specialties</p>
                 <div className="flex flex-start flex-wrap gap-2">
                     <span className='rounded bg-blue-100 px-2'>Cross border operation</span>
                     <span className='rounded bg-blue-100 px-2'>Transaction over 500M€/$</span>
@@ -24,7 +24,7 @@ export const ProfileAttributes:FC = () => {
             </div>
             <div>
                 <p className="
-                block mb-2">Admission to practice law</p>
+                block mb-2 font-extralight">Admission to practice law</p>
                 <div className="flex flex-start flex-wrap gap-2">
                     <span className='rounded bg-blue-100 px-2'>Paris bar association</span>
                     <span className='rounded bg-blue-100 px-2'>Tunisian bar association</span>
@@ -32,7 +32,7 @@ export const ProfileAttributes:FC = () => {
             </div>
             <div>
                 <p className="
-                block mb-2">Counties</p>
+                block mb-2 font-extralight">Counties</p>
                 <div className="flex flex-start flex-wrap gap-2">
                     <span className='rounded bg-blue-100 px-2'>Tunisia</span>
                 </div>       

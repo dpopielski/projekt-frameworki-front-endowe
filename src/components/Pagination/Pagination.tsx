@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { NavLink } from "react-router-dom";
 
 interface PaginationProps {
     postsPerPage: number;
@@ -18,9 +19,9 @@ export const Pagination: FC<PaginationProps> = ({ postsPerPage, totalPosts, pagi
             <ul className="flex justify-center w-1/2 gap-3">
                 {pageNumbers.map(number => (
                     <li key={number}>
-                        <a onClick={() => paginate(number)} href="">
+                        <button className="focus:outline-none" onClick={() => paginate(number)}>
                             {number}
-                        </a>
+                        </button>
                     </li>
                 ))}
             </ul>
