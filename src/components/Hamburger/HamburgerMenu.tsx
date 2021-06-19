@@ -1,8 +1,37 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LeftMenu from "../LeftMenu/LeftMenu";
 
-const ExpandedMenuData = [
+const PlatformData = [
+  {
+    title: "Home",
+    path: "/",
+    icone: `./assets/icons/house.svg`,
+  },
+  {
+    title: "Publications",
+    path: "/404",
+    icone: `./assets/icons/publications.svg`,
+  },
+  {
+    title: "People",
+    path: "/404",
+    icone: `./assets/icons/people.svg`,
+  },
+  {
+    title: "Entities",
+    path: "/404",
+    icone: `./assets/icons/entities.svg`,
+  },
+  {
+    title: "Administration",
+    path: "/404",
+    icone: `./assets/icons/administration.svg`,
+  },
+];
+
+const WorkspacesData = [
   {
     title: "Client contract",
     path: "#",
@@ -16,7 +45,7 @@ const ExpandedMenuData = [
   {
     title: "Corporate",
     path: "#",
-    icone: `./assets/icons/publications.svg`,
+    icone: `./assets/icons/entities2.svg`,
   },
   {
     title: "Group Norms",
@@ -30,24 +59,16 @@ const ExpandedMenuData = [
   },
 ];
 
-const LeftMenuData = [
+const AccountData = [
   {
-    title: "Publications",
+    title: "Privacy",
     path: "#",
-    icone: `./assets/icons/publications.svg`,
-    cName: "aside-text",
+    icone: `./assets/icons/privacy.svg`,
   },
   {
-    title: "Ecosystem",
+    title: "Settings",
     path: "#",
-    icone: `./assets/icons/ecosystem.svg`,
-    cName: "aside-text",
-  },
-  {
-    title: "Entities",
-    path: "#",
-    icone: `./assets/icons/entities2.svg`,
-    cName: "aside-text",
+    icone: `./assets/icons/settings.svg`,
   },
 ];
 
@@ -99,32 +120,61 @@ export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
 
       <div className="mt-2">
         <span className="text-xs px-2">Platform</span>
-        {ExpandedMenuData.filter((elem) =>
+        {PlatformData.filter((elem) =>
           elem.title.toLowerCase().includes(search)
         ).map((elem, index) => (
-          <ul
-            key={index}
-            className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
-          >
-            <img src={elem.icone} alt="" />
-            <li className="text-sm">{elem.title}</li>
-          </ul>
+          <Link to={elem.path} key={index}>
+            <ul
+            className="flex justify-start items-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
+            >
+              <img src={elem.icone} alt="" />
+              <li className="text-sm">{elem.title}</li>
+            </ul>
+          </Link>
         ))}
       </div>
 
       <div className="">
-        {LeftMenuData.filter((elem) =>
+        <span className="text-xs px-2">Workspace</span>
+        {WorkspacesData.filter((elem) =>
           elem.title.toLowerCase().includes(search)
         ).map((elem, index) => (
-          <ul
-            key={index}
-            className="flex justify-start align-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
-          >
+          <Link to={elem.path} key={index}>
+            <ul
+            className="flex justify-start items-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer"
+            >
             <img src={elem.icone} alt="" />
             <li className="text-sm">{elem.title}</li>
           </ul>
+          </Link>
         ))}
       </div>
+
+      <div className="border-b-2">
+          <span className="text-xs px-2">Account</span>
+          <div className="flex justify-start items-center p-2 gap-4 w-full">
+            <img className="h-5 w-5" src={"./assets/profile.svg"} alt="" />
+            <div className="flex flex-col">
+              <span className="flex items-center text-sm"> Jeanne-Marie Li</span>
+              <Link to="/profile" className="text-xs">See profile</Link>
+            </div>
+          </div>
+          {AccountData.filter((elem) =>
+            elem.title.toLowerCase().includes(search)
+          ).map((elem, index) => (
+            <ul
+              key={index}
+              className="flex justify-start items-center p-2 gap-4 w-full cursor-pointer hover:bg-gray-300"
+            >
+              <img className="h-5 w-5" src={elem.icone} alt="" />
+              <li className="flex items-center text-sm">{elem.title}</li>
+            </ul>
+          ))}
+        </div>
+        <div className="flex justify-center items-center p-2 gap-3 w-full">
+          <img className="h-5 w-5" src={"./assets/icons/logout.svg"} alt="" />
+          <span className="flex items-center text-sm">Logout</span>
+        </div>
     </StyledMenu>
   );
 };

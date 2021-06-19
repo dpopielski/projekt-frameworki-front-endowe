@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const PlatformData = [
   {
@@ -9,22 +9,22 @@ const PlatformData = [
   },
   {
     title: "Publications",
-    path: "#",
+    path: "/404",
     icone: `./assets/icons/publications.svg`,
   },
   {
     title: "People",
-    path: "#",
+    path: "/404",
     icone: `./assets/icons/people.svg`,
   },
   {
     title: "Entities",
-    path: "#",
+    path: "/404",
     icone: `./assets/icons/entities.svg`,
   },
   {
     title: "Administration",
-    path: "#",
+    path: "/404",
     icone: `./assets/icons/administration.svg`,
   },
 ];
@@ -91,15 +91,12 @@ export const ExpandedMenu: FC = () => {
           {PlatformData.filter((elem) =>
             elem.title.toLowerCase().includes(search)
           ).map((elem, index) => (
-            <ul
-              key={index}
-              className="cursor-pointer w-full hover:bg-gray-300"
-            >
-              <NavLink to={elem.path} className="flex justify-start items-center p-2 gap-4">
+            <Link to={elem.path} key={index} className="">
+              <ul className="flex justify-start items-center p-2 gap-4 hover:bg-gray-300 cursor-pointer">
                 <img className="h-5 w-5" src={elem.icone} alt="" />
                 <li className="flex items-center text-sm">{elem.title}</li>
-              </NavLink>
-            </ul>
+              </ul>
+            </Link>
           ))}
           <span className="text-xs px-2">Workspace</span>
           {WorkspacesData.filter((elem) =>
@@ -120,7 +117,7 @@ export const ExpandedMenu: FC = () => {
             <img className="h-5 w-5" src={"./assets/profile.svg"} alt="" />
             <div className="flex flex-col">
               <span className="flex items-center text-sm"> Jeanne-Marie Li</span>
-              <NavLink to="/profile" className="text-xs">See profile</NavLink>
+              <Link to="/profile" className="text-xs">See profile</Link>
             </div>
           </div>
           {AccountData.filter((elem) =>

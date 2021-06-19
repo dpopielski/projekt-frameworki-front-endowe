@@ -1,3 +1,5 @@
+import AmountOfFees from "components/AmountOfFees/AmountOfFees"
+import InternalReviews from "components/InternalReviews/InternalReviews"
 import PanelInfo from "components/PanelInfo/PanelInfo"
 import ProfileInfo from "../components/ProfileInfo/ProfileInfo"
 import ProfileTags from "../components/ProfileTags/ProfileTags"
@@ -12,6 +14,10 @@ export default function Profile() {
             <PanelInfo />
             <hr />
             <Proposals />
+            <hr />
+            <InternalReviews />
+            <hr />
+            <AmountOfFees />
         </div>
     )
 }
