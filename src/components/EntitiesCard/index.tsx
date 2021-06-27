@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { FC } from 'react';
 
 interface ComponentProps {
@@ -9,15 +10,15 @@ interface ComponentProps {
 
 const EntitiesCard: FC<ComponentProps> = ({ img, title, adress, country }) => {
   return (
-    <div>
-      <div>
+    <div className="p-5 w-auto">
+      <div className="flex gap-2">
         <div>
-          <img src={img} alt='' />
+          <img className="h-10 w-10" src={img} alt="" />
         </div>
-        <div>
+        <div className="flex flex-col gap-2">
           <h3>{title}</h3>
-          <span>{adress}</span>
-          <span>{country}</span>
+          <p className="text-xs">{adress}</p>
+          <p className="text-xs">{country}</p>
         </div>
       </div>
     </div>

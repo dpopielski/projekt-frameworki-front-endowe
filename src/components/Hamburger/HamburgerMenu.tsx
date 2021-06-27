@@ -10,22 +10,22 @@ const PlatformData = [
   },
   {
     title: 'Publications',
-    path: '/404',
+    path: '/publications',
     icone: `./assets/icons/publications.svg`,
   },
   {
     title: 'People',
-    path: '/404',
+    path: '/people',
     icone: `./assets/icons/people.svg`,
   },
   {
     title: 'Entities',
-    path: '/404',
+    path: '/entities',
     icone: `./assets/icons/entities.svg`,
   },
   {
     title: 'Administration',
-    path: '/404',
+    path: '/administration',
     icone: `./assets/icons/administration.svg`,
   },
 ];
@@ -33,27 +33,27 @@ const PlatformData = [
 const WorkspacesData = [
   {
     title: 'Client contract',
-    path: '#',
+    path: '/client-contract',
     icone: `./assets/icons/publications.svg`,
   },
   {
     title: 'Supplier contract',
-    path: '#',
+    path: '/supplier-contract',
     icone: `./assets/icons/publications.svg`,
   },
   {
     title: 'Corporate',
-    path: '#',
+    path: '/corporate',
     icone: `./assets/icons/entities2.svg`,
   },
   {
     title: 'Group Norms',
-    path: '#',
+    path: 'group-norms',
     icone: `./assets/icons/publications.svg`,
   },
   {
     title: 'Real estate contracts',
-    path: '#',
+    path: 'real-estate-contracts',
     icone: `./assets/icons/publications.svg`,
   },
 ];
@@ -61,12 +61,12 @@ const WorkspacesData = [
 const AccountData = [
   {
     title: 'Privacy',
-    path: '#',
+    path: '/privacy',
     icone: `./assets/icons/privacy.svg`,
   },
   {
     title: 'Settings',
-    path: '#',
+    path: '/settings',
     icone: `./assets/icons/settings.svg`,
   },
 ];
@@ -104,74 +104,77 @@ const StyledMenu = styled.nav<Props>`
   }
 `;
 
-export const HamburgerMenu: FC<HamburgerProps> = ({ open }) => {
+export const HamburgerMenu: FC<HamburgerProps> = ({ open, setOpen }) => {
   const [search, setSearch] = useState('');
+
   return (
     <StyledMenu open={open}>
-      <div className='flex align-center p-1.5 w-full'>
+      <div className="flex align-center p-1.5 w-full">
         <input
-          className='text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full'
-          placeholder='Filter...'
-          type='text'
+          className="text-xs p-1.5 border-2 border-solid border-gray-100 rounded-sm w-full"
+          placeholder="Filter..."
+          type="text"
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
         />
       </div>
 
-      <div className='mt-2'>
-        <span className='text-xs px-2'>Platform</span>
+      <div className="mt-2">
+        <span className="text-xs px-2">Platform</span>
         {PlatformData.filter((elem) =>
-          elem.title.toLowerCase().includes(search)
+          elem.title.toLowerCase().includes(search),
         ).map((elem, index) => (
-          <Link to={elem.path} key={index}>
-            <ul className='flex justify-start items-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer'>
-              <img src={elem.icone} alt='' />
-              <li className='text-sm'>{elem.title}</li>
+          <Link to={elem.path} key={index} onClick={() => setOpen(false)}>
+            <ul className="flex justify-start items-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer">
+              <img src={elem.icone} alt="" />
+              <li className="text-sm">{elem.title}</li>
             </ul>
           </Link>
         ))}
       </div>
 
-      <div className=''>
-        <span className='text-xs px-2'>Workspace</span>
+      <div className="">
+        <span className="text-xs px-2">Workspace</span>
         {WorkspacesData.filter((elem) =>
-          elem.title.toLowerCase().includes(search)
+          elem.title.toLowerCase().includes(search),
         ).map((elem, index) => (
           <Link to={elem.path} key={index}>
-            <ul className='flex justify-start items-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer'>
-              <img src={elem.icone} alt='' />
-              <li className='text-sm'>{elem.title}</li>
+            <ul className="flex justify-start items-center p-2 gap-4 w-full hover:bg-gray-300 cursor-pointer">
+              <img src={elem.icone} alt="" />
+              <li className="text-sm">{elem.title}</li>
             </ul>
           </Link>
         ))}
       </div>
 
-      <div className='border-b-2'>
-        <span className='text-xs px-2'>Account</span>
-        <div className='flex justify-start items-center p-2 gap-4 w-full'>
-          <img className='h-5 w-5' src={'./assets/profile.svg'} alt='' />
-          <div className='flex flex-col'>
-            <span className='flex items-center text-sm'> Jeanne-Marie Li</span>
-            <Link to='/profile' className='text-xs'>
+      <div className="border-b-2">
+        <span className="text-xs px-2">Account</span>
+        <div className="flex justify-start items-center p-2 gap-4 w-full">
+          <img className="h-5 w-5" src={'./assets/profile.svg'} alt="" />
+          <div className="flex flex-col">
+            <span className="flex items-center text-sm"> Jeanne-Marie Li</span>
+            <Link to="/profile" className="text-xs">
               See profile
             </Link>
           </div>
         </div>
         {AccountData.filter((elem) =>
-          elem.title.toLowerCase().includes(search)
+          elem.title.toLowerCase().includes(search),
         ).map((elem, index) => (
           <ul
             key={index}
-            className='flex justify-start items-center p-2 gap-4 w-full cursor-pointer hover:bg-gray-300'
+            className="flex justify-start items-center p-2 gap-4 w-full cursor-pointer hover:bg-gray-300"
           >
-            <img className='h-5 w-5' src={elem.icone} alt='' />
-            <li className='flex items-center text-sm'>{elem.title}</li>
+            <img className="h-5 w-5" src={elem.icone} alt="" />
+            <li className="flex items-center text-sm">{elem.title}</li>
           </ul>
         ))}
       </div>
-      <div className='flex justify-center items-center p-2 gap-3 w-full'>
-        <img className='h-5 w-5' src={'./assets/icons/logout.svg'} alt='' />
-        <span className='flex items-center text-sm'>Logout</span>
-      </div>
+      <Link to="/">
+        <div className="flex justify-center items-center p-2 gap-3 w-full hover:bg-gray-300">
+          <img className="h-5 w-5" src={'./assets/icons/logout.svg'} alt="" />
+          <span className="flex items-center text-sm">Logout</span>
+        </div>
+      </Link>
     </StyledMenu>
   );
 };
