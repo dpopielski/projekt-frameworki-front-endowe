@@ -9,7 +9,7 @@ SwiperCore.use([Pagination, Mousewheel]);
 export const Workspace: FC = () => {
   return (
     <div>
-      <h4 className="mb-3 text-lg font-semibold">Workspaces</h4>
+      <h4 className='mb-3 text-lg font-semibold'>Workspaces</h4>
       <Swiper
         slidesPerView={4}
         direction={'horizontal'}
@@ -18,16 +18,19 @@ export const Workspace: FC = () => {
         mousewheel={true}
       >
         <SwiperSlide>
-          <WorkspaceCard></WorkspaceCard>
+          <WorkspaceCard workname='Client contract' />
         </SwiperSlide>
         <SwiperSlide>
-          <WorkspaceCard></WorkspaceCard>
+          <WorkspaceCard workname='Supplier contract' />
         </SwiperSlide>
         <SwiperSlide>
-          <WorkspaceCard></WorkspaceCard>
+          <WorkspaceCard workname='Corporate' />
         </SwiperSlide>
         <SwiperSlide>
-          <WorkspaceCard></WorkspaceCard>
+          <WorkspaceCard workname='Group norms' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <WorkspaceCard workname='Real estate contracts' />
         </SwiperSlide>
       </Swiper>
     </div>

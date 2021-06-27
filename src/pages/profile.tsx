@@ -6,7 +6,7 @@ import ProfileTags from '../components/ProfileTags/ProfileTags';
 import Proposals from '../components/Proposals/Proposals';
 export default function Profile() {
   return (
-    <div className="shadow">
+    <div className='shadow'>
       <ProfileInfo />
       <hr />
       <ProfileTags />

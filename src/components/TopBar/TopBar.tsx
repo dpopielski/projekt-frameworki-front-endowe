@@ -1,19 +1,19 @@
-import { FC, useState, useRef, MutableRefObject } from "react";
-import styled from "styled-components";
-import { Wrapper } from "../../styledHelpers/Components";
-import { Colors } from "../../styledHelpers/Colors";
-import useDropdown from "react-dropdown-hook";
-import { ExpandedMenu } from "./ExpandedMenu";
-import Hamburger from "../Hamburger/Hamburger";
-import HamburgerMenu from "../Hamburger/HamburgerMenu";
-import { useOnClickOutside } from "../../hooks/hooks";
+import { FC, useState, useRef, MutableRefObject } from 'react';
+import styled from 'styled-components';
+import { Wrapper } from '../../styledHelpers/Components';
+import { Colors } from '../../styledHelpers/Colors';
+import useDropdown from 'react-dropdown-hook';
+import { ExpandedMenu } from './ExpandedMenu';
+import Hamburger from '../Hamburger/Hamburger';
+import HamburgerMenu from '../Hamburger/HamburgerMenu';
+import { useOnClickOutside } from '../../hooks/hooks';
 
 const TopBarWrapper = styled(Wrapper)`
   position: sticky;
   top: 0;
   justify-content: flex-start;
   width: 100%;
-  z-index: 999;
+  z-index: 40;
   box-shadow: 0px 1px 10px #999;
   background-color: ${Colors.white};
   padding: 10px;
@@ -121,7 +121,7 @@ const IconsBackground = styled.div`
     justify-content: center;
     align-items: center;
     position: absolute;
-    content: "3";
+    content: '3';
     font-size: 13px;
     height: 18px;
     width: 18px;
@@ -147,33 +147,30 @@ export const TopBar: FC = () => {
       <HamburgerMenu open={isMenuOpen} setOpen={setIsMenuOpen}></HamburgerMenu>
       <WrapperInner>
         <LeftSection ref={wrapperRef}>
-          <MainLogo src="./assets/logo.png" alt="img"></MainLogo>
+          <MainLogo src='/assets/logo.png' alt='img'></MainLogo>
           <HomeContainer onClick={toggleDropdown}>
-            <img src="./assets/icons/house.svg" alt="img" />
+            <img src='/assets/icons/house.svg' alt='img' />
             <p>Home</p>
             <HomeInner>
-              <img src="./assets/icons/arrow-down.svg" alt="" />
+              <img src='/assets/icons/arrow-down.svg' alt='' />
             </HomeInner>
-            {dropdownOpen && <>{<ExpandedMenu />}</>}
+            {dropdownOpen && <>{<ExpandedMenu setOpen={closeDropdown} />}</>}
           </HomeContainer>
         </LeftSection>
         <CenterSection>
           <SearchContainer>
-            <SearchComponent placeholder="Search"></SearchComponent>
-            <SearchIcone
-              src="./assets/icons/search.svg"
-              alt="img"
-            ></SearchIcone>
+            <SearchComponent placeholder='Search'></SearchComponent>
+            <SearchIcone src='/assets/icons/search.svg' alt='img'></SearchIcone>
           </SearchContainer>
         </CenterSection>
         <RightSection>
           <RightIconsContainer>
-            <img src="./assets/icons/house2.svg" alt="" />
+            <img src='/assets/icons/house2.svg' alt='' />
             <IconsBackground>
-              <img src="./assets/icons/comments.svg" alt="" />
+              <img src='/assets/icons/comments.svg' alt='' />
             </IconsBackground>
             <IconsBackground>
-              <img src="./assets/icons/bell.svg" alt="" />
+              <img src='/assets/icons/bell.svg' alt='' />
             </IconsBackground>
           </RightIconsContainer>
         </RightSection>

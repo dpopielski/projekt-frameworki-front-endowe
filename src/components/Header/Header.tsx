@@ -1,6 +1,7 @@
-import { FC } from "react";
-import Publication from "./Publication";
-import styled from "styled-components";
+import { FC } from 'react';
+import Publication from './Publication';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
 const LeftSection = styled.div`
   display: flex;
   align-items: flex-end;
-  background-image: url("./assets/images/img1.jpg");
+  background-image: url('./assets/images/img1.jpg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -43,7 +44,6 @@ const RightSection = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
-  height: 100%;
   width: inherit;
   padding: 0.5rem 1rem;
 
@@ -106,7 +106,7 @@ export const Header: FC = () => {
             </p>
             <InfoContainer>
               <span>7 jan. 2020</span>
-              <img src="./assets/profile.svg" alt="" />
+              <img src='./assets/profile.svg' alt='' />
               <p>John Doe</p>
             </InfoContainer>
           </LeftSectionInner>
@@ -118,7 +118,9 @@ export const Header: FC = () => {
             <Publication />
             <Publication />
           </div>
-          <span>See more publications</span>
+          <Link to={'/publications'}>
+            <span>See more publications</span>
+          </Link>
         </RightSection>
       </Wrapper>
     </>

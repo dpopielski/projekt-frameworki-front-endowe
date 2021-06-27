@@ -1,17 +1,18 @@
-import { FC } from "react";
-import styled from "styled-components";
+import { FC } from 'react';
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Card = styled.div`
   position: relative;
   height: 200px;
-  width: 280px;
+  width: 100%;
   border-radius: 5px;
   background-color: #fff;
   overflow: hidden;
 `;
 
 const CardImg = styled.div`
-  background-image: url("./assets/images/img1.jpg");
+  background-image: url('./assets/images/img1.jpg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -62,30 +63,30 @@ const CardInnerImg = styled.div`
   }
 `;
 
-export const WorkspaceCard: FC = () => {
+export function WorkspaceCard ({ workname }: { workname: string }) {
   return (
-    <>
+    <Link to={`/workspace/${workname.toLowerCase().split(' ').join('-')}`}>
       <Card>
         <CardInnerImg>
-          <img src="./assets/icons/entities.png" alt="" />
+          <img src='./assets/icons/entities.png' alt='' />
         </CardInnerImg>
         <CardImg></CardImg>
         <Content>
           <div>
-            <p>Client contract</p>
+            <p className="pl-2 truncate">{workname}</p>
           </div>
 
           <span>
-            <img src="./assets/icons/people.png" alt="" />
+            <img src='./assets/icons/people.png' alt='' />
             Contract -
-            <img src="./assets/icons/people.png" alt="" />
+            <img src='./assets/icons/people.png' alt='' />
             150 users
           </span>
 
           <span>Last update 2 days ago</span>
         </Content>
       </Card>
-    </>
+    </Link>
   );
 };
 export default WorkspaceCard;
