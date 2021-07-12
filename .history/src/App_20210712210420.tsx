@@ -4,8 +4,6 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-
-// Custom imports
 import TopBar from './components/TopBar';
 import UserSideBar from './components/UserSideBar';
 import Home from './pages/Home';
