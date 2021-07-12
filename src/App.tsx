@@ -10,9 +10,9 @@ import TopBar from './components/TopBar';
 import UserSideBar from './components/UserSideBar';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Entites from 'pages/Entities';
+import Entites from './pages/Entities';
 import NotFound from './pages/404';
-import Workspace from 'pages/Workspace';
+import Workspace from './pages/Workspace';
 
 export default function App() {
   return (
