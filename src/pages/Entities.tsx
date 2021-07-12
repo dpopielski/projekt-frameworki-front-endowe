@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import cx from 'classnames';
 import axios from 'axios';
-import EntitiesCard from 'components/EntitiesCard';
+import EntitiesCard from '../components/EntitiesCard';
 import {
   CogIcon,
   ViewListIcon,
@@ -44,12 +44,12 @@ export default function Entites() {
           isFullscreen,
       })}
     >
-      <div className='flex justify-between'>
-        <span className='flex items-center gap-2'>
+      <div className="flex justify-between">
+        <span className="flex items-center gap-2">
           <h3>Entities</h3>
-          <CogIcon className='w-5 h-5' />
+          <CogIcon className="w-5 h-5" />
         </span>
-        <div className='flex w-auto h-auto border border-gray-200 border-solid rounded'>
+        <div className="flex w-auto h-auto border border-gray-200 border-solid rounded">
           <button
             onClick={() => setIsList(false)}
             className={cx(
@@ -57,7 +57,7 @@ export default function Entites() {
               { 'bg-gray-300': !isList }
             )}
           >
-            <ViewGridIcon className='w-5 h-5' />
+            <ViewGridIcon className="w-5 h-5" />
             {!isList && <p>Mosaic</p>}
           </button>
           <button
@@ -66,35 +66,35 @@ export default function Entites() {
               'bg-gray-300': isList,
             })}
           >
-            <ViewListIcon className='w-6 h-6' />
+            <ViewListIcon className="w-6 h-6" />
             {isList && <p>List</p>}
           </button>
         </div>
       </div>
 
-      <div className='flex items-center w-auto h-auto'>
-        <span className='flex items-center justify-center gap-2 rounded bg-blue-100 px-1 py-0.5'>
-          <StopIcon className='w-5 h-5' />
+      <div className="flex items-center w-auto h-auto">
+        <span className="flex items-center justify-center gap-2 rounded bg-blue-100 px-1 py-0.5">
+          <StopIcon className="w-5 h-5" />
           <span>All</span>
-          <ChevronDownIcon className='w-5 h-5' />
+          <ChevronDownIcon className="w-5 h-5" />
         </span>
-        <span className='flex items-center justify-center h-auto px-3 border-r border-gray-300 border-solid'>
-          <DotsHorizontalIcon className='w-5 h-5' />
+        <span className="flex items-center justify-center h-auto px-3 border-r border-gray-300 border-solid">
+          <DotsHorizontalIcon className="w-5 h-5" />
         </span>
         <button
           onClick={() => setSortAsc(!sortAsc)}
-          className='flex items-center gap-2 px-4'
+          className="flex items-center gap-2 px-4"
         >
-          <SwitchVerticalIcon className='w-5 h-5' />
+          <SwitchVerticalIcon className="w-5 h-5" />
           <span>Sort</span>
         </button>
-        <span className='flex items-center gap-2 px-4 border-r border-gray-300 border-solid'>
-          <FilterIcon className='w-5 h-5' />
+        <span className="flex items-center gap-2 px-4 border-r border-gray-300 border-solid">
+          <FilterIcon className="w-5 h-5" />
           <span>Filters</span>
         </span>
 
         <button
-          className='ml-4 focus:outline-none'
+          className="ml-4 focus:outline-none"
           onClick={() => setIsFullscreen(!isFullscreen)}
         >
           {isFullscreen ? 'Exit' : ''} Fullscreen
